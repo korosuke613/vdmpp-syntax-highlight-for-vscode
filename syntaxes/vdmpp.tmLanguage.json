@@ -3,20 +3,35 @@
 	"name": "VDM++",
 	"patterns": [
 		{
+			"include": "#number"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#types"
+		},
+		{
 			"include": "#keywords"
 		},
 		{
 			"include": "#strings"
 		},
 		{
-			"include": "#entity"
+			"include": "#definitions"
 		},
 		{
 			"include": "#comment"
+		},
+		{
+			"include": "#value-declator"
+		},
+		{
+			"include": "#modifier"
 		}
 	],
 	"repository": {
-		"comment":{
+		"comment": {
 			"patterns": [
 				{
 					"name": "comment.line.double-dash.vdmpp",
@@ -24,19 +39,11 @@
 				}
 			]
 		},
-		"entity": {
+		"definitions": {
 			"patterns": [
 				{
-					"name": "entity.name.function.vdmpp",
-					"match": "\\b(operations|functions)\\b"
-				},
-				{
-					"name": "entity.name.type.vdmpp",
-					"match": "\\b(types)\\b"
-				},
-				{
-					"name": "entity.other.attribute-name.vdmpp",
-					"match": "\\b(values|instance variables)\\b"
+					"name": "storage.type.vdmpp",
+					"match": "\\b(operations|functions|types|values|instance variables)\\b"
 				}
 			]
 		},
@@ -58,6 +65,141 @@
 					"match": "\\\\."
 				}
 			]
+		},
+		"modifier": {
+			"patterns": [
+				{
+					"name": "storage.modifier.vdmpp",
+					"match": "\\b(public|private|static)\\b"
+				}
+			]
+		},
+		"types": {
+			"patterns": [
+				{
+					"name": "variable.other.readwrite.vdmpp",
+					"match": "\\b(int|nat|sec of char)\\b"
+				}
+			]
+		},
+		"value-declator": {
+			"patterns": [
+				{
+					"match": "(public|private)\\s+(static)\\s+([[:alnum:]]+)\\s*:\\s*([[:alpha:]]+|sec of char)\\s*=\\s*(\\S+)\\s*;",
+					"captures": {
+						"1": {
+							"name": "storage.modifier.vdmpp"
+						},
+						"2": {
+							"name": "storage.modifier.vdmpp"
+						},
+						"3": {
+							"name": "variable.other.readwrite.vdmpp"
+						},
+						"4": {
+							"name": "support.type.primitive.vdmpp"
+						},
+						"5": {
+							"patterns": [
+								{
+									"include": "#number"
+								},
+								{
+									"include": "#strings"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		"number": {
+			"name": "constant.numeric.number",
+			"patterns": [
+				{
+					"include": "#number-float"
+				},
+				{
+					"include": "#number-dec"
+				},
+				{
+					"include": "#number-hex"
+				},
+				{
+					"include": "#number-oct"
+				},
+				{
+					"include": "#number-bin"
+				},
+				{
+					"include": "#number-long"
+				},
+				{
+					"name": "invalid.illegal.name.number",
+					"match": "\\b[0-9]+\\w+"
+				}
+			]
+		},
+		"number-float": {
+			"name": "constant.numeric.float.number",
+			"match": "(?x)\n  (?<! \\w)(?:\n    (?:\n      \\.[0-9](?: _?[0-9] )*\n      |\n      [0-9](?: _?[0-9] )* \\. [0-9](?: _?[0-9] )*\n      |\n      [0-9](?: _?[0-9] )* \\.\n    ) (?: [eE][+-]?[0-9](?: _?[0-9] )* )?\n    |\n    [0-9](?: _?[0-9] )* (?: [eE][+-]?[0-9](?: _?[0-9] )* )\n  )([jJ])?\\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.imaginary.number.number"
+				}
+			}
+		},
+		"number-dec": {
+			"name": "constant.numeric.dec.number",
+			"match": "(?x)\n  (?<![\\w\\.])(?:\n      [1-9](?: _?[0-9] )*\n      |\n      0+\n      |\n      [0-9](?: _?[0-9] )* ([jJ])\n      |\n      0 ([0-9]+)(?![eE\\.])\n  )\\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.imaginary.number.number"
+				},
+				"2": {
+					"name": "invalid.illegal.dec.number"
+				},
+				"3": {
+					"name": "invalid.illegal.dec.number"
+				}
+			}
+		},
+		"number-hex": {
+			"name": "constant.numeric.hex.number",
+			"match": "(?x)\n  (?<![\\w\\.])\n    (0[xX]) (_?[0-9a-fA-F])+\n  \\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.number.number"
+				}
+			}
+		},
+		"number-oct": {
+			"name": "constant.numeric.oct.number",
+			"match": "(?x)\n  (?<![\\w\\.])\n    (0[oO]) (_?[0-7])+\n  \\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.number.number"
+				}
+			}
+		},
+		"number-bin": {
+			"name": "constant.numeric.bin.number",
+			"match": "(?x)\n  (?<![\\w\\.])\n    (0[bB]) (_?[01])+\n  \\b\n",
+			"captures": {
+				"1": {
+					"name": "storage.type.number.number"
+				}
+			}
+		},
+		"number-long": {
+			"name": "constant.numeric.bin.number",
+			"comment": "this is to support number2 syntax for long ints",
+			"match": "(?x)\n  (?<![\\w\\.])\n    ([1-9][0-9]* | 0) ([lL])\n  \\b\n",
+			"captures": {
+				"2": {
+					"name": "storage.type.number.number"
+				}
+			}
 		}
 	},
 	"scopeName": "source.vdmpp"

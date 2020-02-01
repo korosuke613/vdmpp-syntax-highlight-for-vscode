@@ -6,17 +6,18 @@ types
 
 values
 
-public static rule1 : nat = 4;
+public static rule1 : int = 4.6;
 public static rule2 : nat = 100;
 public static rule3 : nat = 400;
+public static rule4 : sec of char = "sssss";
 
 instance variables
 
 private current_year : nat := 2000;
 
-operations
+operation.
 
-public 西暦設定 : int ==> int
+public 西暦設定 : int ==> int<
   西暦設定(年) == current_year := 年;
 
 public うるう年判定 : () ==> seq of char
