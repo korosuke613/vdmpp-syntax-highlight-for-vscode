@@ -1,0 +1,25 @@
+{
+    "name": "vdmpp-syntax-highlight",
+    "displayName": "vdmpp-syntax-highlight",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.41.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "vdmpp",
+            "aliases": ["VDM++"],
+            "extensions": [".vdmpp"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "vdmpp",
+            "scopeName": "source.vdmpp",
+            "path": "./syntaxes/vdmpp.tmLanguage.json"
+        }]
+    }
+}
