@@ -35,6 +35,12 @@
 				},
 				{
 					"include": "#method-name"
+				},
+				{
+					"include": "#operator"
+				},
+				{
+					"include": "#variable-name"
 				}
 			]
 		},
@@ -49,7 +55,7 @@
 		"definitions": {
 			"patterns": [
 				{
-					"name": "storage.type.vdmpp",
+					"name": "entity.name.section.vdmpp",
 					"match": "\\b(operations|functions|types|values|instance variables)\\b"
 				}
 			]
@@ -67,10 +73,15 @@
 			"begin": "(\\S+)\\(",
 			"end": "\\)",
 			"beginCaptures": {
-				"1":{
-					"name":"entity.name.function"
+				"1": {
+					"name": "entity.name.function.vdmpp"
 				}
-			}
+			},
+			"patterns": [
+				{
+					"include": "#variable-name"
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.vdmpp",
@@ -99,6 +110,22 @@
 				}
 			]
 		},
+		"operator": {
+			"patterns": [
+				{
+					"name": "keyword.operator",
+					"match": "\\b(\\+|-|\\*|\\/|mod)\\b"
+				}
+			]
+		},
+		"variable-name": {
+			"patterns": [
+				{
+					"name": "variable.other.readwrite.vdmpp",
+					"match": "([^:()\\s=>])"
+				}
+			]
+		},
 		"class-declator": {
 			"name": "meta.class.vdmpp",
 			"begin": "(class)\\s+(\\S+)",
@@ -108,7 +135,7 @@
 					"name": "storage.type.vdmpp"
 				},
 				"2": {
-					"name": "entity.name.class"
+					"name": "entity.name.class.vdmpp"
 				}
 			},
 			"endCaptures": {
@@ -116,21 +143,79 @@
 					"name": "storage.type.vdmpp"
 				},
 				"2": {
-					"name": "entity.name.class"
+					"name": "entity.name.class.vdmpp"
 				}
 			},
 			"patterns": [
 				{
-					"include": "#operation-declator"
+					"include": "#function-declator"
+				},
+				{
+					"include": "#value-declator"
 				},
 				{
 					"include": "#statement"
 				}
 			]
 		},
-		"operation-declator": {
+		"value-declator": {
+			"name": "meta.value.vdmpp",
+			"begin": "(public|private)\\s+(static)\\s+(\\S+)\\s+:\\s+(\\S+)",
+			"end": ";",
+			"beginCaptures": {
+				"1": {
+					"patterns": [
+						{
+							"include": "#modifier"
+						}
+					]
+				},
+				"2": {
+					"patterns": [
+						{
+							"include": "#modifier"
+						}
+					]
+				},
+				"3": {
+					"patterns": [
+						{
+							"include": "#variable-name"
+						}
+					]
+				},
+				"4": {
+					"patterns": [
+						{
+							"include": "#types"
+						},
+						{
+							"name": "support.type.primitive.vdmpp",
+							"match": "\\S+"
+						}
+					]
+				}
+			},
+			"endCaptures": {
+				"1": {
+					"name": "storage.type.vdmpp"
+				},
+				"2": {
+					"name": "entity.name.class.vdmpp"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#function-declator"
+				},
+				{
+					"include": "#statement"
+				}
+			]
+		},
+		"function-declator": {
 			"name": "meta.function.vdmpp",
-			"begin": "(public|private)\\s+(\\S+)\\s+:\\s+(\\S+)\\s+(==>)\\s+(seq of char|\\S+)",
+			"begin": "(public|private)\\s+(\\S+)\\s+:\\s+(\\S+)\\s+(==>|->)\\s+(seq of char|\\S+)",
 			"beginCaptures": {
 				"1": {
 					"patterns": [
@@ -146,6 +231,10 @@
 					"patterns": [
 						{
 							"include": "#types"
+						},
+						{
+							"name": "support.type.primitive.vdmpp",
+							"match": "\\S+"
 						}
 					]
 				},
@@ -156,6 +245,10 @@
 					"patterns": [
 						{
 							"include": "#types"
+						},
+						{
+							"name": "support.type.primitive.vdmpp",
+							"match": "\\S+"
 						}
 					]
 				}

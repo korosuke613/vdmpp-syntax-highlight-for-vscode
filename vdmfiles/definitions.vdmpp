@@ -1,14 +1,16 @@
 -- comment
 
-class Nest
+class Sample
 
 types
 
+public 年 = int
+
 values
-public static rule1 : int = 4.6;
-public static rule2 : nat = 100;
-public static rule3 : nat = 400;
-public static rule4 : seq of char = "sssss";
+
+public static rule1 : 年 = 4;
+public static rule2 : 年 = 100;
+public static rule3 : 年 = 400;
 
 instance variables
 
@@ -16,7 +18,7 @@ private current_year : nat := 2000;
 
 operations
 
-public 西暦設定 : int ==> int
+public 西暦設定 : 年 ==> int
   西暦設定(年) == current_year := 年;
 
 public うるう年判定 : () ==> seq of char
