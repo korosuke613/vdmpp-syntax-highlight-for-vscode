@@ -3,34 +3,41 @@
 	"name": "VDM++",
 	"patterns": [
 		{
-			"include": "#number"
+			"include": "#class-declator"
 		},
 		{
-			"include": "#strings"
-		},
-		{
-			"include": "#types"
-		},
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		},
-		{
-			"include": "#definitions"
-		},
-		{
-			"include": "#comment"
-		},
-		{
-			"include": "#value-declator"
-		},
-		{
-			"include": "#modifier"
+			"include": "#statement"
 		}
 	],
 	"repository": {
+		"statement": {
+			"patterns": [
+				{
+					"include": "#comment"
+				},
+				{
+					"include": "#modifier"
+				},
+				{
+					"include": "#definitions"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#types"
+				},
+				{
+					"include": "#keywords"
+				},
+				{
+					"include": "#number"
+				},
+				{
+					"include": "#method-name"
+				}
+			]
+		},
 		"comment": {
 			"patterns": [
 				{
@@ -55,6 +62,16 @@
 				}
 			]
 		},
+		"method-name": {
+			"name": "meta.use-method.vdmpp",
+			"begin": "(\\S+)\\(",
+			"end": "\\)",
+			"beginCaptures": {
+				"1":{
+					"name":"entity.name.function"
+				}
+			}
+		},
 		"strings": {
 			"name": "string.quoted.double.vdmpp",
 			"begin": "\"",
@@ -77,39 +94,76 @@
 		"types": {
 			"patterns": [
 				{
-					"name": "variable.other.readwrite.vdmpp",
-					"match": "\\b(int|nat|sec of char)\\b"
+					"name": "support.type.primitive.vdmpp",
+					"match": "\\b(int|nat|seq of char)\\b"
 				}
 			]
 		},
-		"value-declator": {
+		"class-declator": {
+			"name": "meta.class.vdmpp",
+			"begin": "(class)\\s+(\\S+)",
+			"end": "(end)\\s+(\\S+)",
+			"beginCaptures": {
+				"1": {
+					"name": "storage.type.vdmpp"
+				},
+				"2": {
+					"name": "entity.name.class"
+				}
+			},
+			"endCaptures": {
+				"1": {
+					"name": "storage.type.vdmpp"
+				},
+				"2": {
+					"name": "entity.name.class"
+				}
+			},
 			"patterns": [
 				{
-					"match": "(public|private)\\s+(static)\\s+([[:alnum:]]+)\\s*:\\s*([[:alpha:]]+|sec of char)\\s*=\\s*(\\S+)\\s*;",
-					"captures": {
-						"1": {
-							"name": "storage.modifier.vdmpp"
-						},
-						"2": {
-							"name": "storage.modifier.vdmpp"
-						},
-						"3": {
-							"name": "variable.other.readwrite.vdmpp"
-						},
-						"4": {
-							"name": "support.type.primitive.vdmpp"
-						},
-						"5": {
-							"patterns": [
-								{
-									"include": "#number"
-								},
-								{
-									"include": "#strings"
-								}
-							]
+					"include": "#operation-declator"
+				},
+				{
+					"include": "#statement"
+				}
+			]
+		},
+		"operation-declator": {
+			"name": "meta.function.vdmpp",
+			"begin": "(public|private)\\s+(\\S+)\\s+:\\s+(\\S+)\\s+(==>)\\s+(seq of char|\\S+)",
+			"beginCaptures": {
+				"1": {
+					"patterns": [
+						{
+							"include": "#modifier"
 						}
-					}
+					]
+				},
+				"2": {
+					"name": "entity.name.function"
+				},
+				"3": {
+					"patterns": [
+						{
+							"include": "#types"
+						}
+					]
+				},
+				"4": {
+					"name": "storage.type.function.arrow.js"
+				},
+				"5": {
+					"patterns": [
+						{
+							"include": "#types"
+						}
+					]
+				}
+			},
+			"end": ";",
+			"patterns": [
+				{
+					"include": "#statement"
 				}
 			]
 		},
