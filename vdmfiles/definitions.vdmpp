@@ -4,7 +4,7 @@ class うるう年
 
 types -- 型定義
 
-public 年 = nat
+public 年 = nat;
 
 values -- 定数定義
 
@@ -34,7 +34,7 @@ public うるう年判定 : () ==> seq of char
     else
       return "平年";
 
-end Nest
+end うるう年
 
 
 
