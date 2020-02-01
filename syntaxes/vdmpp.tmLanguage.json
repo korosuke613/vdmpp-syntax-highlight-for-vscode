@@ -7,14 +7,46 @@
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#entity"
+		},
+		{
+			"include": "#comment"
 		}
 	],
 	"repository": {
+		"comment":{
+			"patterns": [
+				{
+					"name": "comment.line.double-dash.vdmpp",
+					"match": "--.*"
+				}
+			]
+		},
+		"entity": {
+			"patterns": [
+				{
+					"name": "entity.name.function.vdmpp",
+					"match": "\\b(operations|functions)\\b"
+				},
+				{
+					"name": "entity.name.type.vdmpp",
+					"match": "\\b(types)\\b"
+				},
+				{
+					"name": "entity.other.attribute-name.vdmpp",
+					"match": "\\b(values|instance variables)\\b"
+				}
+			]
+		},
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.vdmpp",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.control.vdmpp",
+					"match": "\\b(if|else|then|return)\\b"
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.vdmpp",
