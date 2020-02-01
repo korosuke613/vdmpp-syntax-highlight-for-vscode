@@ -1,31 +1,31 @@
 -- comment
 
-class Sample
+class うるう年
 
-types
+types -- 型定義
 
-public 年 = int
+public 年 = nat
 
-values
+values -- 定数定義
 
-public static rule1 : 年 = 4;
-public static rule2 : 年 = 100;
-public static rule3 : 年 = 400;
+public static ルール1 : 年 = 4;
+public static ルール2 : 年 = 100;
+public static ルール3 : 年 = 400;
 
-instance variables
+instance variables -- インスタンス変数定義
 
-private current_year : nat := 2000;
+private 西暦 : nat := 2000;
 
-operations
+operations -- 操作定義
 
 public 西暦設定 : 年 ==> int
-  西暦設定(年) == current_year := 年;
+  西暦設定(年) == 西暦 := 年;
 
 public うるう年判定 : () ==> seq of char
   うるう年判定() ==
-    if(current_year mod rule1 = 0) then
-      if(current_year mod rule2 = 0) then
-        if(current_year mod rule3 = 0) then
+    if(西暦 mod ルール1 = 0) then
+      if(西暦 mod ルール2 = 0) then
+        if(西暦 mod ルール3 = 0) then
           return "うるう年"
         else
           return "平年"
@@ -33,6 +33,12 @@ public うるう年判定 : () ==> seq of char
         return "うるう年"
     else
       return "平年";
+
+end Nest
+
+
+
+
 
 functions
 
@@ -49,4 +55,3 @@ public うるう年判定仕様 : int -> seq of char
     else
       "平年";
 
-end Nest
