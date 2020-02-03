@@ -1,10 +1,16 @@
 {
   "name": "vdmpp-extension",
+  "displayName": "VDM++",
   "description": "VSCode part of a language server",
   "author": "Futa HIRAKOBA",
   "license": "MIT",
   "version": "0.0.1",
-  "publisher": "vscode",
+  "publisher": "korosuke613",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/korosuke613/vdmpp-vscode-extension.git"
+  },
+  "homepage": "https://github.com/korosuke613/vdmpp-vscode-extension/blob/master/README.md",
   "engines": {
     "vscode": "^1.41.0"
   },
