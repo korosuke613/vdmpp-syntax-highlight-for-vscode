@@ -9,21 +9,24 @@ To use, open a VDM++ file(`*.vdmpp`).
 The language server will then automatically launch in the background.
 
 ## Features
+
 * Linting
 * Syntax Highlighting(Rough)
 
 ## Future Works
-- [x] Linting
-- [x] Syntax Highlighting(rough)
-- [ ] Syntax Highlighting(detail)
-- [ ] Formatting
-- [ ] Document symbols
-- [ ] Go-to-definition
-- [ ] Code completion
-- [ ] Hover
-- [ ] Find references
+
+* [x] Linting
+* [x] Syntax Highlighting(rough)
+* [ ] Syntax Highlighting(detail)
+* [ ] Formatting
+* [ ] Document symbols
+* [ ] Go-to-definition
+* [ ] Code completion
+* [ ] Hover
+* [ ] Find references
 
 ## Development
+
 For the Developper.
 
 ### Packageing
