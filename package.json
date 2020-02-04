@@ -17,12 +17,14 @@
   "categories": [
     "Programming Languages"
   ],
+  "icon": "images/icon.png",
   "keywords": [
     "VDM++",
     "Vieena Development Method",
     "VDMPP",
     "VDM"
   ],
+  "preview": true,
   "activationEvents": [
     "onLanguage:vdmpp"
   ],
