@@ -13,15 +13,15 @@ The language server will then automatically launch in the background.
 * Syntax Highlighting(Rough)
 
 ## Future Works
-[x] Linting
-[x] Syntax Highlighting(Rough)
-[ ] Syntax Highlighting(Detail)
-[ ] Formatting
-[ ] Document symbols
-[ ] Go-to-definition
-[ ] Code completion
-[ ] Hover
-[ ] Find references
+- [x] Linting
+- [x] Syntax Highlighting(Rough)
+- [ ] Syntax Highlighting(Detail)
+- [ ] Formatting
+- [ ] Document symbols
+- [ ] Go-to-definition
+- [ ] Code completion
+- [ ] Hover
+- [ ] Find references
 
 ## Development
 For the Developper.
