@@ -4,7 +4,7 @@
   "description": "VDM++ language support for VS Code",
   "author": "Futa HIRAKOBA",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "publisher": "korosuke613",
   "repository": {
     "type": "git",
@@ -18,7 +18,10 @@
     "Programming Languages"
   ],
   "keywords": [
-    "VDM++", "Vieena Development Method", "VDMPP", "VDM"
+    "VDM++",
+    "Vieena Development Method",
+    "VDMPP",
+    "VDM"
   ],
   "activationEvents": [
     "onLanguage:vdmpp"
