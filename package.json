@@ -4,7 +4,7 @@
   "description": "VDM++ language support for VS Code",
   "author": "Futa HIRAKOBA",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "korosuke613",
   "repository": {
     "type": "git",
