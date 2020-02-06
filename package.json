@@ -61,6 +61,10 @@
         "path": "./syntaxes/definition/value.tmLanguage.json"
       },
       {
+        "scopeName": "source.vdmpp.definition.variable",
+        "path": "./syntaxes/definition/variable.tmLanguage.json"
+      },
+      {
         "scopeName": "source.vdmpp.type",
         "path": "./syntaxes/type.tmLanguage.json"
       },

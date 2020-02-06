@@ -1,0 +1,53 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "variable",
+	"patterns": [
+		{
+			"include": "#variable-declator"
+		}
+	],
+	"repository": {
+		"variable-declator": {
+			"name": "meta.variable.vdmpp",
+			"match": "(?:\\S+)\\s*(:)\\s*(.+)\\s*(:=)\\s*(.*)(;)",
+			"captures": {
+				"1": {
+					"patterns": [
+						{
+							"include": "source.vdmpp.statement"
+						}
+					]
+				},
+				"2": {
+					"patterns": [
+						{
+							"include": "source.vdmpp.type"
+						}
+					]
+				},
+				"3": {
+					"patterns": [
+						{
+							"include": "source.vdmpp.statement"
+						}
+					]
+				},
+				"4": {
+					"patterns": [
+						{
+							"include": "source.vdmpp.number"
+						}
+					]
+				},
+				"5": {
+					"patterns": [
+						{
+							"include": "source.vdmpp.statement"
+						}
+					]
+				}
+			}
+		}
+	},
+	"scopeName": "source.vdmpp.definition.variable"
+}
