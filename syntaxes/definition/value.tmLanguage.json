@@ -3,10 +3,25 @@
 	"name": "value",
 	"patterns": [
 		{
-			"include": "#value-declator"
+			"include": "#value-block"
 		}
 	],
 	"repository": {
+		"value-block":{
+			"name": "meta.variable.vdmpp",
+			"begin": "(values)",
+			"end": "\\s*(?=instance variables|operations|functions)",
+			"beginCaptures": {
+				"1":{
+					"name": "entity.name.section.vdmpp"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#value-declator"
+				}
+			]
+		},
 		"value-declator": {
 			"patterns": [
 				{

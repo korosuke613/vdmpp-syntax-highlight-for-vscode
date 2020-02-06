@@ -3,13 +3,27 @@
 	"name": "variable",
 	"patterns": [
 		{
-			"include": "#variable-declator"
+			"include": "#variable-block"
 		}
 	],
 	"repository": {
-		"variable-declator": {
+		"variable-block":{
 			"name": "meta.variable.vdmpp",
-			"match": "(?:\\S+)\\s*(:)\\s*(.+)\\s*(:=)\\s*(.*)(;)",
+			"begin": "(instance variables)",
+			"end": "\\s*(?=values|operations|functions)",
+			"beginCaptures": {
+				"1":{
+					"name": "entity.name.section.vdmpp"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#variable-declator"
+				}
+			]
+		},
+		"variable-declator": {
+			"match": "(?:\\S+)\\s*(:)\\s*(.+)\\s*(:=)\\s*(.*)\\s*(;)",
 			"captures": {
 				"1": {
 					"patterns": [
