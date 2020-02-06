@@ -2,9 +2,9 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "definition",
 	"patterns": [
-        {
-            "include": "#class-declator"
-        }
+		{
+			"include": "#class-declator"
+		}
 	],
 	"repository": {
 		"class-declator": {
@@ -40,59 +40,104 @@
 			]
 		},
 		"value-declator": {
-			"name": "meta.value.vdmpp",
-			"match": "(public|private)\\s+(static)\\s+(?:\\S+)\\s*(:)\\s*(.+)\\s*(=)\\s*(\\S+)\\s*(;)",
-			"captures": {
-				"1": {
-					"patterns": [
-						{
-							"include": "source.vdmpp.statement"
+			"patterns": [
+				{
+					"name": "meta.value.vdmpp",
+					"match": "(.*)\\s+(.*)\\s+(?:\\S+)\\s*(:)\\s*(.+)\\s*(=)\\s*(\\S+)\\s*(;)",
+					"captures": {
+						"1": {
+							"patterns": [
+								{
+									"include": "source.vdmpp.statement"
+								}
+							]
+						},
+						"2": {
+							"patterns": [
+								{
+									"include": "source.vdmpp.statement"
+								}
+							]
+						},
+						"3": {
+							"patterns": [
+								{
+									"include": "source.vdmpp.statement"
+								}
+							]
+						},
+						"4": {
+							"patterns": [
+								{
+									"include": "source.vdmpp.type"
+								}
+							]
+						},
+						"5": {
+							"patterns": [
+								{
+									"include": "source.vdmpp.statement"
+								}
+							]
+						},
+						"6": {
+							"patterns": [
+								{
+									"include": "source.vdmpp.statement"
+								}
+							]
+						},
+						"7": {
+							"patterns": [
+								{
+									"include": "source.vdmpp.number"
+								}
+							]
 						}
-					]
+					}
 				},
-				"2": {
-					"patterns": [
-						{
-							"include": "source.vdmpp.statement"
+				{
+					"name": "meta.value.vdmpp",
+					"match": "(.*)\\s+(.*)\\s+(?:\\S+)\\s*(:)\\s*(.+)\\s*(;)",
+					"captures": {
+						"1": {
+							"patterns": [
+								{
+									"include": "source.vdmpp.statement"
+								}
+							]
+						},
+						"2": {
+							"patterns": [
+								{
+									"include": "source.vdmpp.statement"
+								}
+							]
+						},
+						"3": {
+							"patterns": [
+								{
+									"include": "source.vdmpp.statement"
+								}
+							]
+						},
+						"4": {
+							"patterns": [
+								{
+									"include": "source.vdmpp.type"
+								}
+							]
+						},
+						"5": {
+							"patterns": [
+								{
+									"include": "source.vdmpp.number"
+								}
+							]
 						}
-					]
-				},
-				"3": {
-					"patterns": [
-						{
-							"include": "source.vdmpp.statement"
-						}
-					]
-				},
-				"4": {
-					"patterns": [
-						{
-							"include": "source.vdmpp.type"
-						}
-					]
-				},
-				"5": {
-					"patterns": [
-						{
-							"include": "source.vdmpp.statement"
-						}
-					]
-				},
-				"6": {
-					"patterns": [
-						{
-							"include": "source.vdmpp.statement"
-						}
-					]
-				},
-				"7": {
-					"patterns": [
-						{
-							"include": "source.vdmpp.number"
-						}
-					]
+					}
 				}
-			}
+			]
 		},
 		"variable-declator": {
 			"name": "meta.variable.vdmpp",
@@ -112,7 +157,7 @@
 						}
 					]
 				},
-				"3":{
+				"3": {
 					"patterns": [
 						{
 							"include": "source.vdmpp.statement"
@@ -168,6 +213,6 @@
 				}
 			]
 		}
-    },
+	},
 	"scopeName": "source.vdmpp.definition"
 }
