@@ -22,7 +22,7 @@
 					"include": "#strings"
 				},
 				{
-					"include": "#types"
+					"include": "source.vdmpp.type"
 				},
 				{
 					"include": "#keywords"
@@ -77,14 +77,6 @@
 				}
 			]
 		},
-		"types": {
-			"patterns": [
-				{
-					"name": "support.type.primitive.vdmpp",
-					"match": "\\b(int|nat|token|seq of char)\\b"
-				}
-			]
-		},
 		"keywords": {
 			"patterns": [
 				{
@@ -97,7 +89,7 @@
 			"patterns": [
 				{
 					"name": "keyword.operator.assignment.vdmpp",
-					"match": "(\\||\\&|=|\\+|-|\\*|\\/|>|<)"
+					"match": "(\\||\\&|=|\\+|-|\\*|\\/|>|<|:)"
 				},
 				{
 					"name": "keyword.operator.assignment.vdmpp",

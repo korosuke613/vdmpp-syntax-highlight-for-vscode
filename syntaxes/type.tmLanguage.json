@@ -1,9 +1,9 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "type",
+	"name": "meta.type.vdmpp",
 	"patterns": [
         {
-            "include": "#type"
+            "include": "#types"
         }
 	],
 	"repository": {
@@ -11,16 +11,35 @@
 			"patterns": [
 				{
 					"include": "#primitive"
+				},
+				{
+					"include": "#composit"
 				}
 			]
 		},
 		"primitive": {
+			"name": "support.type.primitive.vdmpp",
+			"match": "(int|nat|token)"
+		},
+		"composit": {
 			"patterns": [
 				{
-					"name": "support.type.primitive.vdmpp",
-					"match": "\\b(int|nat|token)\\b"
+					"include": "#setseq"
 				}
 			]
+		},
+		"setseq": {
+			"name": "support.type.primitive.vdmpp",
+			"match": "(?:seq|seq1|set|set1)\\s+(?:of)\\s+(.*)",
+			"captures":{
+				"1":{
+					"patterns": [
+						{
+							"include": "#type"
+						}
+					]
+				}
+			} 
 		}
     },
 	"scopeName": "source.vdmpp.type"
