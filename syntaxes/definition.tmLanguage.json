@@ -95,47 +95,6 @@
 							]
 						}
 					}
-				},
-				{
-					"name": "meta.value.vdmpp",
-					"match": "(.*)\\s+(.*)\\s+(?:\\S+)\\s*(:)\\s*(.+)\\s*(;)",
-					"captures": {
-						"1": {
-							"patterns": [
-								{
-									"include": "source.vdmpp.statement"
-								}
-							]
-						},
-						"2": {
-							"patterns": [
-								{
-									"include": "source.vdmpp.statement"
-								}
-							]
-						},
-						"3": {
-							"patterns": [
-								{
-									"include": "source.vdmpp.statement"
-								}
-							]
-						},
-						"4": {
-							"patterns": [
-								{
-									"include": "source.vdmpp.type"
-								}
-							]
-						},
-						"5": {
-							"patterns": [
-								{
-									"include": "source.vdmpp.number"
-								}
-							]
-						}
-					}
 				}
 			]
 		},
