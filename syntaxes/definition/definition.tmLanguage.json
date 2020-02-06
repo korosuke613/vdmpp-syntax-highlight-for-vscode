@@ -29,72 +29,13 @@
 			},
 			"patterns": [
 				{
-					"include": "#value-declator"
+					"include": "source.vdmpp.definition.value"
 				},
 				{
 					"include": "#variable-declator"
 				},
 				{
 					"include": "#function-declator"
-				}
-			]
-		},
-		"value-declator": {
-			"patterns": [
-				{
-					"name": "meta.value.vdmpp",
-					"match": "(.*)\\s+(.*)\\s+(?:\\S+)\\s*(:)\\s*(.+)\\s*(=)\\s*(\\S+)\\s*(;)",
-					"captures": {
-						"1": {
-							"patterns": [
-								{
-									"include": "source.vdmpp.statement"
-								}
-							]
-						},
-						"2": {
-							"patterns": [
-								{
-									"include": "source.vdmpp.statement"
-								}
-							]
-						},
-						"3": {
-							"patterns": [
-								{
-									"include": "source.vdmpp.statement"
-								}
-							]
-						},
-						"4": {
-							"patterns": [
-								{
-									"include": "source.vdmpp.type"
-								}
-							]
-						},
-						"5": {
-							"patterns": [
-								{
-									"include": "source.vdmpp.statement"
-								}
-							]
-						},
-						"6": {
-							"patterns": [
-								{
-									"include": "source.vdmpp.statement"
-								}
-							]
-						},
-						"7": {
-							"patterns": [
-								{
-									"include": "source.vdmpp.number"
-								}
-							]
-						}
-					}
 				}
 			]
 		},
