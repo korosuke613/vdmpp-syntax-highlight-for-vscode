@@ -54,7 +54,7 @@
       },
       {
         "scopeName": "source.vdmpp.definition",
-        "path": "./syntaxes/definition.tmLanguage.json"
+        "path": "./syntaxes/definition/definition.tmLanguage.json"
       },
       {
         "scopeName": "source.vdmpp.type",
