@@ -18,6 +18,7 @@
 			]
 		},
 		"primitive": {
+			"comment": "sample: nat, int",
 			"name": "support.type.primitive.vdmpp",
 			"match": "(int|nat|token)"
 		},
@@ -25,14 +26,39 @@
 			"patterns": [
 				{
 					"include": "#setseq"
+				},
+				{
+					"include": "#mapinmap"
 				}
 			]
 		},
 		"setseq": {
+			"comment": "sample: seq of char, set of seq of nat",
 			"name": "support.type.primitive.vdmpp",
 			"match": "(?:seq|seq1|set|set1)\\s+(?:of)\\s+(.*)",
 			"captures":{
 				"1":{
+					"patterns": [
+						{
+							"include": "#type"
+						}
+					]
+				}
+			} 
+		},
+		"mapinmap": {
+			"comment": "sample: seq of char, set of seq of nat",
+			"name": "support.type.primitive.vdmpp",
+			"match": "(?:map|inmap)\\s+(.+)\\s+(?:to)\\s+(.+)",
+			"captures":{
+				"1":{
+					"patterns": [
+						{
+							"include": "#type"
+						}
+					]
+				},
+				"2":{
 					"patterns": [
 						{
 							"include": "#type"
