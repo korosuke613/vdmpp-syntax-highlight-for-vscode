@@ -41,7 +41,7 @@
 		},
 		"value-declator": {
 			"name": "meta.value.vdmpp",
-			"match": "(public|private)\\s+(static)\\s+(?:\\S+)\\s*(:)\\s*(\\S+\\s+of\\s+.+|\\S+)\\s*(=)\\s*(\\S+)\\s*(;)",
+			"match": "(public|private)\\s+(static)\\s+(?:\\S+)\\s*(:)\\s*(.+)\\s*(=)\\s*(\\S+)\\s*(;)",
 			"captures": {
 				"1": {
 					"patterns": [
