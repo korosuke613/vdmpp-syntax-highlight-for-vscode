@@ -16,9 +16,6 @@
 					"include": "#modifier"
 				},
 				{
-					"include": "#definitions"
-				},
-				{
 					"include": "#strings"
 				},
 				{
@@ -55,14 +52,6 @@
 				{
 					"name": "storage.type.vdmpp",
 					"match": "\\b(let)\\b"
-				}
-			]
-		},
-		"definitions": {
-			"patterns": [
-				{
-					"name": "entity.name.section.vdmpp",
-					"match": "\\b(operations|functions|types|values|instance variables)\\b"
 				}
 			]
 		},

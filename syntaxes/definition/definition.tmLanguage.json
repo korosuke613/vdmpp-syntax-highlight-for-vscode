@@ -29,6 +29,9 @@
 			},
 			"patterns": [
 				{
+					"include": "#definitions"
+				},
+				{
 					"include": "source.vdmpp.definition.value"
 				},
 				{
@@ -36,6 +39,14 @@
 				},
 				{
 					"include": "#function-declator"
+				}
+			]
+		},
+		"definitions": {
+			"patterns": [
+				{
+					"name": "entity.name.section.vdmpp",
+					"match": "\\b(operations|functions|types|values|instance variables)\\b"
 				}
 			]
 		},
