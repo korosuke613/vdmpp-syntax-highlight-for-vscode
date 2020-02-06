@@ -20,7 +20,7 @@
 		"primitive": {
 			"comment": "sample: nat, int",
 			"name": "support.type.primitive.vdmpp",
-			"match": "(int|nat|token)"
+			"match": "(int|nat|token|bool|nat1|rat|real|char)"
 		},
 		"composit": {
 			"patterns": [
@@ -34,8 +34,8 @@
 		},
 		"setseq": {
 			"comment": "sample: seq of char, set of seq of nat",
-			"name": "support.type.primitive.vdmpp",
-			"match": "(?:seq|seq1|set|set1)\\s+(?:of)\\s+(.*)",
+			"name": "support.type.composit.setseq.vdmpp",
+			"match": "(?:seq|seq1|set|set1)\\s+(?:of)\\s+(.+)",
 			"captures":{
 				"1":{
 					"patterns": [
@@ -47,8 +47,8 @@
 			} 
 		},
 		"mapinmap": {
-			"comment": "sample: seq of char, set of seq of nat",
-			"name": "support.type.primitive.vdmpp",
+			"comment": "sample: map char to char, map char to seq of nat",
+			"name": "support.type.composit.mapinmap.vdmpp",
 			"match": "(?:map|inmap)\\s+(.+)\\s+(?:to)\\s+(.+)",
 			"captures":{
 				"1":{
