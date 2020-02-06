@@ -26,17 +26,19 @@ The language server will then automatically launch in the background.
 * [ ] Hover
 * [ ] Find references
 
-### Linting
-
-Lint the VDM++ file.
-
-![Linting](https://raw.githubusercontent.com/korosuke613/vdmpp-vscode-extension/master/images/sample-lint.png)
 
 ### Syntax Highlighting
 
-Syntax highlight the VDM++ file.(using [VDMJ](https://github.com/nickbattle/vdmj))
+Syntax highlight the VDM++ file.
 
 ![Syntax Highlighting](https://raw.githubusercontent.com/korosuke613/vdmpp-vscode-extension/master/images/sample-syntax-highlight.png)
+
+
+### Linting
+
+Lint the VDM++ file.(using [VDMJ](https://github.com/nickbattle/vdmj))
+
+![Linting](https://raw.githubusercontent.com/korosuke613/vdmpp-vscode-extension/master/images/sample-lint.png)
 
 ## Development
 
