@@ -1,0 +1,129 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "statement",
+	"patterns": [
+        {
+            "include": "#statement"
+        }
+	],
+	"repository": {
+		"statement": {
+			"patterns": [
+				{
+					"include": "#comment"
+				},
+				{
+					"include": "#modifier"
+				},
+				{
+					"include": "#definitions"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#types"
+				},
+				{
+					"include": "#keywords"
+				},
+				{
+					"include": "source.vdmpp.number"
+				},
+				{
+					"include": "#method-name"
+				},
+				{
+					"include": "#operator"
+				}
+			]
+		},
+		"comment": {
+			"patterns": [
+				{
+					"name": "comment.line.double-dash.vdmpp",
+					"match": "--.*"
+				}
+			]
+		},
+		"modifier": {
+			"patterns": [
+				{
+					"name": "storage.modifier.vdmpp",
+					"match": "\\b(public|private|static|pre|post|pure)\\b"
+				},
+				{
+					"name": "storage.type.vdmpp",
+					"match": "\\b(let)\\b"
+				}
+			]
+		},
+		"definitions": {
+			"patterns": [
+				{
+					"name": "entity.name.section.vdmpp",
+					"match": "\\b(operations|functions|types|values|instance variables)\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.vdmpp",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.vdmpp",
+					"match": "\\\\."
+				}
+			]
+		},
+		"types": {
+			"patterns": [
+				{
+					"name": "support.type.primitive.vdmpp",
+					"match": "\\b(int|nat|token|seq of char)\\b"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.vdmpp",
+					"match": "\\b(if|else|then|return|forall)\\b"
+				}
+			]
+		},
+		"operator": {
+			"patterns": [
+				{
+					"name": "keyword.operator.assignment.vdmpp",
+					"match": "(\\||\\&|=|\\+|-|\\*|\\/|>|<)"
+				},
+				{
+					"name": "keyword.operator.assignment.vdmpp",
+					"match": "\\b(mod|in set|dom|comp|iterate|and|or|abs|floor|card|power|dunion|dinter)\\b"
+				},
+				{
+					"name": "keyword.operator.new.vdmpp",
+					"match": "\\b(new)\\b"
+				}
+			]
+		},
+		"method-name": {
+			"name": "meta.use-method.vdmpp",
+			"begin": "(\\S+)\\(",
+			"end": "\\)",
+			"beginCaptures": {
+				"1": {
+					"name": "entity.name.function.vdmpp"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#variable-name"
+				}
+			]
+		}
+    },
+	"scopeName": "source.vdmpp.statement"
+}

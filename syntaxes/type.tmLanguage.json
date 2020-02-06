@@ -1,0 +1,27 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "type",
+	"patterns": [
+        {
+            "include": "#type"
+        }
+	],
+	"repository": {
+		"types": {
+			"patterns": [
+				{
+					"include": "#primitive"
+				}
+			]
+		},
+		"primitive": {
+			"patterns": [
+				{
+					"name": "support.type.primitive.vdmpp",
+					"match": "\\b(int|nat|token)\\b"
+				}
+			]
+		}
+    },
+	"scopeName": "source.vdmpp.type"
+}
