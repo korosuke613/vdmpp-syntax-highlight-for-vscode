@@ -9,7 +9,7 @@ import * as path from 'path';
 import * as net from 'net';
 import * as child_process from "child_process";
 
-import { workspace, Disposable, ExtensionContext } from 'vscode';
+import { workspace, Disposable, ExtensionContext, window, MessageOptions, env, Uri } from 'vscode';
 import { LanguageClient, LanguageClientOptions, SettingMonitor, StreamInfo } from 'vscode-languageclient';
 
 export function activate(context: ExtensionContext) {
@@ -31,8 +31,18 @@ export function activate(context: ExtensionContext) {
 			});
 
 			let javaExecutablePath = findJavaExecutable('java');
-
-			// grab a random port.
+			if (javaExecutablePath == null) {
+				const messageOptions:MessageOptions = {modal:false};
+				window.showErrorMessage("Couldn't locate java in $JAVA_HOME or $PATH. ", messageOptions, "Install Java").then(select => {
+					if(select === "Install Java"){
+						env.openExternal(Uri.parse('https://' + "www.java.com/ja/download/manual.jsp"))
+					}else{
+						window.showErrorMessage("VDM++ language server can't launching.")
+					}
+				})
+				return
+			}
+ 			// grab a random port.
 			server.listen(() => {
 				// Start the child java process
 				let options = { cwd: workspace.rootPath };
@@ -56,7 +66,7 @@ export function activate(context: ExtensionContext) {
 				process.stderr.pipe(logStream);
 
 				console.log(`Storing log in '${logFile}'`);
-			});
+			});					
 		});
 	};
 
