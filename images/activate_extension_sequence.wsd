@@ -1,0 +1,26 @@
+@startuml
+
+actor User
+
+User -> VSCode: open VDM++ file
+
+alt the extension not running
+
+VSCode ->> VdmppExtension **: launch extension
+VdmppExtension -> VdmppExtension ++: activate
+
+VdmppExtension -> VdmppLanguageClient ** : create tcp server
+
+VdmppLanguageClient -> VdmppLanguageClient ++ : listen
+
+VdmppLanguageClient ->> VdmppLanguageServer **: create LSP server(Jar)\nas a subprocess
+
+VdmppLanguageServer -> VdmppLanguageServer: connect VdmppLanguageClient
+
+VdmppLanguageClient --> VdmppExtension -- : tcp socket
+
+VdmppExtension -> VdmppExtension -- : register VdmppLanguageClient
+
+end
+
+@enduml

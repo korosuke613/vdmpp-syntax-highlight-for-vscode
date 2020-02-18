@@ -33,7 +33,6 @@ Syntax highlight the VDM++ file.
 
 ![Syntax Highlighting](https://raw.githubusercontent.com/korosuke613/vdmpp-vscode-extension/master/images/sample-syntax-highlight.png)
 
-
 ### Linting
 
 Lint the VDM++ file.(using [VDMJ](https://github.com/nickbattle/vdmj))
@@ -44,9 +43,20 @@ Lint the VDM++ file.(using [VDMJ](https://github.com/nickbattle/vdmj))
 
 For the Developper.
 
+### Structure
+
+![Structure](https://raw.githubusercontent.com/korosuke613/vdmpp-vscode-extension/master/images/vdmpp_extension_structure.png)
+
+[Image file is here.](https://sketch.cloud/s/z3zga)
+
+### Seaquence diagram
+
+#### Activate extension
+
+![activate extension](https://raw.githubusercontent.com/korosuke613/vdmpp-vscode-extension/master/images/activate_extension_sequence.png)
+
 ### Packageing
 
 ```bash
 vsce package
 ```
-
