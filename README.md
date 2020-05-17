@@ -60,3 +60,21 @@ For the Developper.
 ```bash
 vsce package
 ```
+
+### Debugging
+1. git clone this repository
+2. open directory with vscode
+4. open command parette `Cmd + Shift + p`
+5. input "start debugging"
+6. select "Launch Extension"
+
+#### Change read LSP Server
+You can change read LSP Server.
+
+1. Open `src/extension.ts`
+2. Change `path.resolve(context.extensionPath,in~~~` in `server.listen()`.
+
+**COUTION: Don't commit that diff.**
+
+##### example
+![change LSP Server](https://raw.githubusercontent.com/korosuke613/vdmpp-vscode-extension/master/images/change-lsp-server.png)
